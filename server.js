@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const CORS = require('cors');
-const port = 5000;
+const port = 5001;
 
 const app = express();
 
@@ -114,7 +114,7 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
     const { username, password } = req.body;
-    if ( username === 'It me!' && password === 'Pl34s3l3tm3!n!@' ) {
+    if ( username === 'test' && password === 'test' ) {
         req.loggedIn = true;
         setTimeout(() => {
             res.status(200).json({

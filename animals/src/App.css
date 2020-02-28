@@ -1,5 +1,5 @@
 body {
-  background: url('./assests/safari.jpg') ;
+  background: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1348&q=80') ;
 }
 
 .App {
@@ -92,8 +92,8 @@ ul {
   padding: 0.8rem 0rem 0.8rem 0.8rem;
   font-size: 1.2rem;
   width: 100%;
-  display: flex;
-  align-items: start;
+  display: flex-start;
+  /* align-items: start; */
 }
 
 .card-container {
@@ -101,7 +101,7 @@ ul {
   flex-wrap: wrap;
   padding-left: 1rem;
   width: 100%;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .card {
