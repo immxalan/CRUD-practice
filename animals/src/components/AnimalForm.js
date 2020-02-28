@@ -37,6 +37,7 @@ export default function AnimalForm({animals, updateAnimals, setDependency }) {
     const deleteAnimal = animal => {
         // How can we delete an animal?
         //2. Add in an axiosAuth delete call 
+        //2.5 Filter through the animals array and create a new array from whatever items (selected by ID) that do not match the animalToUpdate ID (the item being deleted)
         axiosAuth()
             .delete(`animals/${animalToUpdate.id}`, animal)
             .then(res =>
@@ -46,19 +47,11 @@ export default function AnimalForm({animals, updateAnimals, setDependency }) {
 
     return (
         <div className="animals-list">
+            <p>Click on one of the animal names below to edit or delete</p>
             <ul className="organized">
                 {animals.map(animal => (
                     <li key={animal.name} onClick={() => editAnimal(animal)} className="edit-animals">
-                        <span>
-                            <span onClick={e => {
-                                    e.stopPropagation();
-                                    deleteAnimal(animal)
-                                }
-                            } >
-                                X
-                            </span>{" "}
                             {animal.name}
-                        </span>
                     </li>
                 ))}
             </ul>
@@ -97,6 +90,11 @@ export default function AnimalForm({animals, updateAnimals, setDependency }) {
                     </label>
                     <div>
                         <button type="submit">Update</button>
+                        <button onClick={e => {
+                            e.stopPropagation();
+                            deleteAnimal()}}>
+                            Delete
+                        </button>
                         <button onClick={() => setUpdating(false)}>Cancel</button>
                     </div>
                 </form>
